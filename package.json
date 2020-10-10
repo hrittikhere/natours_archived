@@ -4,8 +4,8 @@
   "description": "LINK : https://hrittikhere.github.io/natours/",
   "main": "index.js",
   "scripts": {
-    "compile:sass":"node-sass sass/main.scss css/style.scss"
-   },
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hrittikhere/natours.git"
@@ -18,5 +18,6 @@
   "homepage": "https://github.com/hrittikhere/natours#readme",
   "devDependencies": {
     "node-sass": "^4.14.1"
-  }
+  },
+  "dependencies": {}
 }
