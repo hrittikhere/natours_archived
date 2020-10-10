@@ -1,11 +1,37 @@
-$color-primary: #55c57a;
-$color-primary-light: #7ed56f;
-$color-primary-dark: #28b485;
-$color-grey-dark: #777;
-$color-white: rgb(243, 243, 243);
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "components/bg-video";
+@import "components/button";
+@import "components/card";
+@import "components/composition";
+@import "components/feature-box";
+@import "components/form";
+@import "components/popup";
+@import "components/story";
+
+@import "layout/footer"; 
+@import "layout/grid";
+@import "layout/header";
+@import "layout/navigation";
+
+@import "pages/home";
+
+
+
+
+
+
+
 *,
 *::after,
-*::before {
+*::before { 
   margin: 0;
   padding: 0;
   box-sizing: inherit; /*forces all classes and elements to inherit box size property to of the body ##a better practice*/
@@ -24,6 +50,7 @@ body {
   color: $color-grey-dark;
   box-sizing: border-box;
 }
+
 .header {
   height: 95vh;
   background-image: linear-gradient(
@@ -36,25 +63,26 @@ body {
   background-position: top; /* this property will fix the image top a a fixed one i.e while resizing you can be assured that the tp pof image is constant ,top,bottom,center   */
   clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
   position: relative;
-}
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
 
-.header__logo {
-  height: 5rem;
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
 
-  /*you can use hover element .logo:hover  with animation in css to create hover animaion; */
-}
+  &__logo {
+    height: 5rem;
 
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center; /*majorly alligns the btn-white to centre as it's just a text block*/
+    /*you can use hover element .logo:hover  with animation in css to create hover animaion; */
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /*majorly alligns the btn-white to centre as it's just a text block*/
+  }
 }
 
 .heading-primary {
@@ -63,26 +91,26 @@ body {
   backface-visibility: hidden;
   /* backface-visibility hidden doesnt shows the backside of transfrmed element */
   margin-bottom: 6rem;
-}
 
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 800ms;
-  animation-timing-function: ease-out;
-  /*animation-delay: 5ms;
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 800ms;
+    animation-timing-function: ease-out;
+    /*animation-delay: 5ms;
 animation-iteration-count: 1; */
-}
+  }
 
-.heading-primary--sub {
-  display: block;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation: moveInRight 800ms ease-out;
+  &--sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 800ms ease-out;
+  }
 }
 
 @keyframes moveInLeft {
@@ -127,52 +155,55 @@ animation-iteration-count: 1; */
 
 .btn {
   position: relative; /*position relative to the after element which is absolute*/
-}
 
-.btn:link,
-.btn:visited {
-  display: inline-block;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  border-radius: 10rem;
-  transition: all 0.32s; /*transition should be in parent state */
-}
+  &:link,
+  &:visited {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    transition: all 0.32s; /*transition should be in parent state */
+  }
 
-.btn:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 10px 20px rgba($color-grey-dark, 0.2); /*hover needs more blur */ /*x y blur color*/
-}
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba($color-grey-dark, 0.2);
-}
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 10px 20px rgba($color-grey-dark, 0.2); /*hover needs more blur */ /*x y blur color*/
 
-.btn--white {
-  background-color: $color-white;
-  color: $color-grey-dark;
-}
+    &::after {
+      transform: scaleX(1.5) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-grey-dark, 0.2);
+  }
 
-.btn::after {
-  content: ""; /*always needed to specified */
-  display: inline-block;
-  height: 100%; /*after psudo element is treated as child so 100% is rel to .btn */
-  width: 100%;
-  border-radius: 100px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.42s;
-}
-.btn--white::after {
-  background-color: $color-white;
-}
-.btn:hover::after {
-  transform: scaleX(1.5) scaleY(1.6);
-  opacity: 0;
-}
-.btn--animated {
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards; /*applies the initial animation propert as the base*/
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &:after {
+      background-color: $color-white;
+    }
+  }
+
+  &::after {
+    content: ""; /*always needed to specified */
+    display: inline-block;
+    height: 100%; /*after psudo element is treated as child so 100% is rel to & */
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.42s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards; /*applies the initial animation propert as the base*/
+  }
 }

@@ -27,23 +27,20 @@ body {
   /* this property will fix the image top a a fixed one i.e while resizing you can be assured that the tp pof image is constant ,top,bottom,center   */
   clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
   position: relative; }
-
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 5rem;
-  /*you can use hover element .logo:hover  with animation in css to create hover animaion; */ }
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  /*majorly alligns the btn-white to centre as it's just a text block*/ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 5rem;
+    /*you can use hover element .logo:hover  with animation in css to create hover animaion; */ }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /*majorly alligns the btn-white to centre as it's just a text block*/ }
 
 .heading-primary {
   color: #f3f3f3;
@@ -51,24 +48,22 @@ body {
   backface-visibility: hidden;
   /* backface-visibility hidden doesnt shows the backside of transfrmed element */
   margin-bottom: 6rem; }
-
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 800ms;
-  animation-timing-function: ease-out;
-  /*animation-delay: 5ms;
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 800ms;
+    animation-timing-function: ease-out;
+    /*animation-delay: 5ms;
 animation-iteration-count: 1; */ }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation: moveInRight 800ms ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 800ms ease-out; }
 
 @keyframes moveInLeft {
   0% {
@@ -100,53 +95,44 @@ animation-iteration-count: 1; */ }
 .btn {
   position: relative;
   /*position relative to the after element which is absolute*/ }
-
-.btn:link,
-.btn:visited {
-  display: inline-block;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  border-radius: 10rem;
-  transition: all 0.32s;
-  /*transition should be in parent state */ }
-
-.btn:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 10px 20px rgba(119, 119, 119, 0.2);
-  /*hover needs more blur */
-  /*x y blur color*/ }
-
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(119, 119, 119, 0.2); }
-
-.btn--white {
-  background-color: #f3f3f3;
-  color: #777; }
-
-.btn::after {
-  content: "";
-  /*always needed to specified */
-  display: inline-block;
-  height: 100%;
-  /*after psudo element is treated as child so 100% is rel to .btn */
-  width: 100%;
-  border-radius: 100px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.42s; }
-
-.btn--white::after {
-  background-color: #f3f3f3; }
-
-.btn:hover::after {
-  transform: scaleX(1.5) scaleY(1.6);
-  opacity: 0; }
-
-.btn--animated {
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards;
-  /*applies the initial animation propert as the base*/ }
+  .btn:link, .btn:visited {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    transition: all 0.32s;
+    /*transition should be in parent state */ }
+  .btn:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 10px 20px rgba(119, 119, 119, 0.2);
+    /*hover needs more blur */
+    /*x y blur color*/ }
+    .btn:hover::after {
+      transform: scaleX(1.5) scaleY(1.6);
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(119, 119, 119, 0.2); }
+  .btn--white {
+    background-color: #f3f3f3;
+    color: #777; }
+    .btn--white:after {
+      background-color: #f3f3f3; }
+  .btn::after {
+    content: "";
+    /*always needed to specified */
+    display: inline-block;
+    height: 100%;
+    /*after psudo element is treated as child so 100% is rel to & */
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.42s; }
+  .btn--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+    /*applies the initial animation propert as the base*/ }
