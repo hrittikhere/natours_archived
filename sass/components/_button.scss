@@ -1,0 +1,56 @@
+
+.btn {
+    position: relative; /*position relative to the after element which is absolute*/
+  
+    &:link,
+    &:visited {
+      display: inline-block;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1.5rem 4rem;
+      border-radius: 10rem;
+      transition: all 0.32s; /*transition should be in parent state */
+    }
+  
+    &:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0 10px 20px rgba($color-grey-dark, 0.2); /*hover needs more blur */ /*x y blur color*/
+  
+      &::after {
+        transform: scaleX(1.5) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+    &:active {
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 1rem rgba($color-grey-dark, 0.2);
+    }
+  
+    &--white {
+      background-color: $color-white;
+      color: $color-grey-dark;
+  
+      &:after {
+        background-color: $color-white;
+      }
+    }
+  
+    &::after {
+      content: ""; /*always needed to specified */
+      display: inline-block;
+      height: 100%; /*after psudo element is treated as child so 100% is rel to & */
+      width: 100%;
+      border-radius: 100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: all 0.42s;
+    }
+  
+    &--animated {
+      animation: moveInBottom 0.5s ease-out 0.75s;
+      animation-fill-mode: backwards; /*applies the initial animation propert as the base*/
+    }
+  }
+  

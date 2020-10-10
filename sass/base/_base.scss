@@ -1,0 +1,12 @@
+
+*,
+*::after,
+*::before { 
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /*forces all classes and elements to inherit box size property to of the body ##a better practice*/
+}
+
+html {
+  font-size: 62.5%; /*this defines what  one rem should be used for people who have improper vision and we want to provide them with better ue*/
+}

@@ -1,70 +1,3 @@
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-  /*forces all classes and elements to inherit box size property to of the body ##a better practice*/ }
-
-html {
-  font-size: 62.5%;
-  /*used for people who have improper vision and we want to provide them with better ue*/ }
-
-body {
-  font-family: "Lato", Helvetica, sans-serif;
-  font-weight: 400;
-  font-size: 1.6rem;
-  line-height: 1.7;
-  padding: 3rem;
-  color: #777;
-  box-sizing: border-box; }
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  /* this property will fix the image top a a fixed one i.e while resizing you can be assured that the tp pof image is constant ,top,bottom,center   */
-  clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
-  position: relative; }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 5rem;
-    /*you can use hover element .logo:hover  with animation in css to create hover animaion; */ }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    /*majorly alligns the btn-white to centre as it's just a text block*/ }
-
-.heading-primary {
-  color: #f3f3f3;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  /* backface-visibility hidden doesnt shows the backside of transfrmed element */
-  margin-bottom: 6rem; }
-  .heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation-name: moveInLeft;
-    animation-duration: 800ms;
-    animation-timing-function: ease-out;
-    /*animation-delay: 5ms;
-animation-iteration-count: 1; */ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 800ms ease-out; }
-
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -91,6 +24,50 @@ animation-iteration-count: 1; */ }
   100% {
     opacity: 1;
     transform: translate(0); } }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /*forces all classes and elements to inherit box size property to of the body ##a better practice*/ }
+
+html {
+  font-size: 62.5%;
+  /*this defines what  one rem should be used for people who have improper vision and we want to provide them with better ue*/ }
+
+.heading-primary {
+  color: #f3f3f3;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /* backface-visibility hidden doesnt shows the backside of transfrmed element */
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 800ms;
+    animation-timing-function: ease-out;
+    /*animation-delay: 5ms;
+  animation-iteration-count: 1; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 800ms ease-out; }
+
+body {
+  font-family: "Lato", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  padding: 3rem;
+  color: #777;
+  box-sizing: border-box; }
 
 .btn {
   position: relative;
@@ -136,3 +113,26 @@ animation-iteration-count: 1; */ }
     animation: moveInBottom 0.5s ease-out 0.75s;
     animation-fill-mode: backwards;
     /*applies the initial animation propert as the base*/ }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  /* this property will fix the image top a a fixed one i.e while resizing you can be assured that the tp pof image is constant ,top,bottom,center   */
+  clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 5rem;
+    /*you can use hover element .logo:hover  with animation in css to create hover animaion; */ }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /*majorly alligns the btn-white to centre as it's just a text block*/ }
